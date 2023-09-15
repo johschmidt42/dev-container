@@ -16,19 +16,6 @@ RUN groupadd --gid $USER_GID $USERNAME && \
 # Add bash autocompletion
 RUN apt-get install bash-completion
 
-# Install azure-cli
-# based on https://github.com/devcontainers/features/tree/main/src/azure-cli
-RUN curl -sL https://raw.githubusercontent.com/devcontainers/features/main/src/azure-cli/install.sh -o azure-cli.sh && \
-    chmod +x azure-cli.sh && \
-    ./azure-cli.sh
-
-# Enable docker-from docker
-# based on https://github.com/devcontainers/features/tree/main/src/docker-from-docker &
-# https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-from-docker
-RUN curl -sL https://raw.githubusercontent.com/devcontainers/features/main/src/docker-from-docker/install.sh -o docker-from-docker.sh && \
-    chmod +x docker-from-docker.sh && \
-    ./docker-from-docker.sh
-
 # Persist the bash history
 # based on https://code.visualstudio.com/remote/advancedcontainers/persist-bash-history
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" && \

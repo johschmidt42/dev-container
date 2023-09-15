@@ -1,5 +1,5 @@
 {
-  "name": "Python (Azure) Dev Container",
+  "name": "Python Dev Container",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -17,16 +17,16 @@
       },
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-azuretools.vscode-azurefunctions",
-        "ms-azuretools.vscode-azureappservice",
-        "ms-azuretools.vscode-azurestorage"
+        "ms-python.vscode-pylance"
+        //        "ms-azuretools.vscode-azurefunctions",
+        //        "ms-azuretools.vscode-azureappservice",
+        //        "ms-azuretools.vscode-azurestorage"
       ]
     }
   },
-  "forwardPorts": [
-    9000
-  ],
+  //  "forwardPorts": [
+  //    9000
+  //  ],
   "mounts": [
     {
       "source": "${localEnv:HOME}/.ssh",
@@ -38,16 +38,16 @@
       "target": "/commandhistory",
       "type": "volume"
     },
-    {
-      "source": "${localEnv:HOME}/.azure",
-      "target": "/home/Johannes/.azure",
-      "type": "bind"
-    },
-    {
-      "source": "/var/run/docker.sock",
-      "target": "/var/run/docker.sock",
-      "type": "bind"
-    }
+    //    {
+    //      "source": "${localEnv:HOME}/.azure",
+    //      "target": "/home/Johannes/.azure",
+    //      "type": "bind"
+    //    },
+    //    {
+    //      "source": "/var/run/docker.sock",
+    //      "target": "/var/run/docker.sock",
+    //      "type": "bind"
+    //    }
   ],
   // "runArgs": ["--env-file","config/.env", "--init"],
   "remoteUser": "Johannes",
