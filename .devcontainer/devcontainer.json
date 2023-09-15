@@ -1,0 +1,57 @@
+{
+  "name": "Python (Azure) Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash"
+          }
+        },
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.languageServer": "Default"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-azureappservice",
+        "ms-azuretools.vscode-azurestorage"
+      ]
+    }
+  },
+  "forwardPorts": [
+    9000
+  ],
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.ssh",
+      "target": "/home/Johannes/.ssh",
+      "type": "bind"
+    },
+    {
+      "source": "bashhistory",
+      "target": "/commandhistory",
+      "type": "volume"
+    },
+    {
+      "source": "${localEnv:HOME}/.azure",
+      "target": "/home/Johannes/.azure",
+      "type": "bind"
+    },
+    {
+      "source": "/var/run/docker.sock",
+      "target": "/var/run/docker.sock",
+      "type": "bind"
+    }
+  ],
+  // "runArgs": ["--env-file","config/.env", "--init"],
+  "remoteUser": "Johannes",
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  }
+}
